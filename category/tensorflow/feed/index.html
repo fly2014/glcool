@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>TensorFlow &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/category/tensorflow/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Mon, 25 Jun 2018 01:30:47 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>TensorFlow在Centos7上环境安装</title>
+		<link>https://www.glcool.com/2018/06/25/tensorflow%e5%9c%a8centos7%e4%b8%8a%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85.html</link>
+					<comments>https://www.glcool.com/2018/06/25/tensorflow%e5%9c%a8centos7%e4%b8%8a%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85.html#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Mon, 25 Jun 2018 01:30:47 +0000</pubDate>
+				<category><![CDATA[TensorFlow]]></category>
+		<category><![CDATA[CentOS7]]></category>
+		<category><![CDATA[Python]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=243</guid>
+
+					<description><![CDATA[1、Python版本为 2.7 yum install python-pip python-dev pip i &#8230; <a href="https://www.glcool.com/2018/06/25/tensorflow%e5%9c%a8centos7%e4%b8%8a%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85.html" class="more-link">继续阅读<span class="screen-reader-text">TensorFlow在Centos7上环境安装</span></a>]]></description>
+										<content:encoded><![CDATA[<p>1、Python版本为 2.7<br />
+<code>yum install python-pip python-dev<br />
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow      # Python 2.7; CPU support (no GPU support)<br />
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow-gpu  #有N卡版本</code></p>
+<p>如果安装失败，执行下面命令<br />
+<code>sudo pip  install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp27-none-linux_x86_64.whl   # Python 2.7</code><br />
+卸载tensorflow<br />
+<code>pip uninstall tensorflow </code><br />
+2、验证环境</p>
+<blockquote><p>运行一个简短的 TensorFlow 程序<br />
+从 shell 中调用 Python，如下所示：<br />
+<code>python</code><br />
+在 Python 交互式 shell 中输入以下几行简短的程序代码：<br />
+# Python<br />
+<code>import tensorflow as tf<br />
+hello = tf.constant('Hello, TensorFlow!')<br />
+sess = tf.Session()<br />
+print(sess.run(hello))</code><br />
+如果系统输出以下内容，就说明您可以开始编写 TensorFlow 程序了：<br />
+Hello, TensorFlow!</p></blockquote>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/2018/06/25/tensorflow%e5%9c%a8centos7%e4%b8%8a%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

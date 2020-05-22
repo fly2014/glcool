@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>NLOG &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/tag/nlog/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Tue, 09 Jul 2019 03:19:47 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>NET之NLOG使用</title>
+		<link>https://www.glcool.com/2019/07/09/net%e4%b9%8bnlog%e4%bd%bf%e7%94%a8.html</link>
+					<comments>https://www.glcool.com/2019/07/09/net%e4%b9%8bnlog%e4%bd%bf%e7%94%a8.html#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Tue, 09 Jul 2019 03:19:47 +0000</pubDate>
+				<category><![CDATA[NET]]></category>
+		<category><![CDATA[NLOG]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=278</guid>
+
+					<description><![CDATA[安装 Install-Package NLog.Config 配置文件 &#60;nlog xmlns="htt &#8230; <a href="https://www.glcool.com/2019/07/09/net%e4%b9%8bnlog%e4%bd%bf%e7%94%a8.html" class="more-link">继续阅读<span class="screen-reader-text">NET之NLOG使用</span></a>]]></description>
+										<content:encoded><![CDATA[<p>安装<br />
+<code>Install-Package NLog.Config</code><br />
+配置文件</p>
+<pre>  &lt;nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.nlog-project.org/schemas/NLog.xsd NLog.xsd"
+      autoReload="true"
+      throwExceptions="false"
+      internalLogLevel="Trace" internalLogToConsole="false" internalLogFile="nlog-internal.log"&gt;
+  &lt;targets  async="true"&gt;
+    &lt;target name="logfile" xsi:type="File" fileName="file.txt" /&gt;
+    &lt;target name="logconsole" xsi:type="Console" /&gt;
+  &lt;/targets&gt;
+  &lt;rules&gt;
+    &lt;logger name="*" minlevel="Info" writeTo="logconsole,logfile" /&gt;
+    &lt;logger name="*" minlevel="Debug" writeTo="logconsole" /&gt;
+    &lt;logger name="*" minlevel="Error" writeTo="logconsole,logfile" /&gt;
+  &lt;/rules&gt;
+&lt;/nlog&gt;  
+</pre>
+<p>使用<br />
+<code>public static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();<br />
+Logger.Error("Error" + (e.Source as AccordionStyleControl).Tag.ToString());</code></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/2019/07/09/net%e4%b9%8bnlog%e4%bd%bf%e7%94%a8.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

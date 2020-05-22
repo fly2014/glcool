@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>javascript &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/tag/javascript/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Wed, 07 Aug 2019 09:32:25 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>C#动态执行javascript</title>
+		<link>https://www.glcool.com/2019/08/07/c%e5%8a%a8%e6%80%81%e6%89%a7%e8%a1%8cjavascript.html</link>
+					<comments>https://www.glcool.com/2019/08/07/c%e5%8a%a8%e6%80%81%e6%89%a7%e8%a1%8cjavascript.html#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Wed, 07 Aug 2019 09:32:25 +0000</pubDate>
+				<category><![CDATA[NET]]></category>
+		<category><![CDATA[javascript]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=294</guid>
+
+					<description><![CDATA[Create a file in Notepad with only these contents: clas &#8230; <a href="https://www.glcool.com/2019/08/07/c%e5%8a%a8%e6%80%81%e6%89%a7%e8%a1%8cjavascript.html" class="more-link">继续阅读<span class="screen-reader-text">C#动态执行javascript</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Create a file in Notepad with only these contents:</p>
+<p>class EvalClass { function Evaluate(expression: String) { return eval(expression); } }<br />
+Save the file as C:\MyEval.js</p>
+<p>Open a VS2005 Command Prompt (Start, Programs, VS2005, VS2005 Tools)</p>
+<p>Type Cd\ to get to C:\</p>
+<p>Type</p>
+<p>jsc /t:library C:\MyEval.js<br />
+A new file is created named MyEval.dll.</p>
+<p>Copy MyEval.dll to the project and reference it (also reference Microsoft.Jscript.dll).</p>
+<p>Then you should be able to call it like this:</p>
+<p>Dim jScriptEvaluator As New EvalClass<br />
+Dim objResult As Object<br />
+objResult = jScriptEvaluator.Evaluate(“1==1 &amp;&amp; 2==2”)<br />
+其他方式：https://github.com/davideicardi/DynamicExpresso（支持netcore）</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/2019/08/07/c%e5%8a%a8%e6%80%81%e6%89%a7%e8%a1%8cjavascript.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

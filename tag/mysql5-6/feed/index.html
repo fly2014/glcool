@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mysql5.6 &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/tag/mysql5-6/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Tue, 25 Jun 2019 05:36:10 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>Centos7安装mysql5.6</title>
+		<link>https://www.glcool.com/2019/06/25/centos7%e5%ae%89%e8%a3%85mysql5-6.html</link>
+					<comments>https://www.glcool.com/2019/06/25/centos7%e5%ae%89%e8%a3%85mysql5-6.html#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Tue, 25 Jun 2019 05:36:10 +0000</pubDate>
+				<category><![CDATA[数据库]]></category>
+		<category><![CDATA[CentOS7]]></category>
+		<category><![CDATA[mysql5.6]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=270</guid>
+
+					<description><![CDATA[wget http://repo.mysql.com/yum/mysql-5.6-community/el/7 &#8230; <a href="https://www.glcool.com/2019/06/25/centos7%e5%ae%89%e8%a3%85mysql5-6.html" class="more-link">继续阅读<span class="screen-reader-text">Centos7安装mysql5.6</span></a>]]></description>
+										<content:encoded><![CDATA[<p><code>wget http://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64//mysql-community-release-el7-5.noarch.rpm<br />
+rpm -Uvh mysql-community-release-el7-5.noarch.rpm<br />
+yum install mysql-community-server<br />
+systemctl start mysql<br />
+systemctl status mysql<br />
+mysql -u root<br />
+use mysql;<br />
+update user set password=PASSWORD("root") where User='root';<br />
+update user set host='%' where Host='localhost' and User='root';<br />
+flush privileges;</code></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/2019/06/25/centos7%e5%ae%89%e8%a3%85mysql5-6.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

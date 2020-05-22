@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>C# &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/tag/c/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Thu, 06 Jun 2019 06:08:59 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>C# winform 自定义透明控件，可以重叠</title>
+		<link>https://www.glcool.com/2019/06/06/c-winform-%e8%87%aa%e5%ae%9a%e4%b9%89%e9%80%8f%e6%98%8e%e6%8e%a7%e4%bb%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%87%8d%e5%8f%a0.html</link>
+					<comments>https://www.glcool.com/2019/06/06/c-winform-%e8%87%aa%e5%ae%9a%e4%b9%89%e9%80%8f%e6%98%8e%e6%8e%a7%e4%bb%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%87%8d%e5%8f%a0.html#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Thu, 06 Jun 2019 06:08:59 +0000</pubDate>
+				<category><![CDATA[NET]]></category>
+		<category><![CDATA[C#]]></category>
+		<category><![CDATA[winform]]></category>
+		<category><![CDATA[透明控件]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=258</guid>
+
+					<description><![CDATA[直接上代码： using System; using System.Collections.Generic;  &#8230; <a href="https://www.glcool.com/2019/06/06/c-winform-%e8%87%aa%e5%ae%9a%e4%b9%89%e9%80%8f%e6%98%8e%e6%8e%a7%e4%bb%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%87%8d%e5%8f%a0.html" class="more-link">继续阅读<span class="screen-reader-text">C# winform 自定义透明控件，可以重叠</span></a>]]></description>
+										<content:encoded><![CDATA[<p>直接上代码：<br />
+<code><br />
+using System;<br />
+using System.Collections.Generic;<br />
+using System.ComponentModel;<br />
+using System.Drawing;<br />
+using System.Data;<br />
+using System.Linq;<br />
+using System.Text;<br />
+using System.Threading.Tasks;<br />
+using System.Windows.Forms;<br />
+using System.Drawing.Drawing2D;<br />
+using System.Runtime.InteropServices;<br />
+using System.Drawing.Imaging;</code></p>
+<p>namespace WFControl<br />
+{<br />
+public partial class ArrowLine : UserControl<br />
+{<br />
+<span style="color: #ff0000;">protected override CreateParams CreateParams</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">get</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">CreateParams cp = base.CreateParams;</span><br />
+<span style="color: #ff0000;">cp.ExStyle |= 0x00000020;</span><br />
+<span style="color: #ff0000;">return cp;</span><br />
+<span style="color: #ff0000;">}</span><br />
+<span style="color: #ff0000;">}</span><br />
+public ArrowLine()<br />
+{<br />
+InitializeComponent();<br />
+<span style="color: #ff0000;">[subscribe]this.SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.Opaque, true);[/subscribe]</span><br />
+this.SetStyle(ControlStyles.ResizeRedraw, false);<br />
+}<br />
+private int mlineHeight = 5;<br />
+private byte mdirection = 0;</p>
+<p>///</p>
+<p>/// 线条宽度.<br />
+///</p>
+<p>[Description(&#8220;宽度&#8221;)]</p>
+<p>public int LineHeight<br />
+{<br />
+get<br />
+{<br />
+return mlineHeight;<br />
+}<br />
+set<br />
+{<br />
+mlineHeight = value;<br />
+}<br />
+}<br />
+private int mIsArrow = 0;<br />
+///</p>
+<p>/// 是否显示箭头.<br />
+///</p>
+<p>[Description(&#8220;箭头&#8221;)]<br />
+public int IsArrow<br />
+{<br />
+get { return mIsArrow; }<br />
+set<br />
+{<br />
+mIsArrow = value;<br />
+}<br />
+}<br />
+///</p>
+<p>/// 线条方向<br />
+///0:从右至左;1:从下至上；2：从左至右;3:从上至下.<br />
+///</p>
+<p>[Description(&#8220;类型&#8221;)]</p>
+<p>public byte Direction<br />
+{<br />
+get<br />
+{<br />
+return mdirection;<br />
+}<br />
+set<br />
+{<br />
+mdirection = value;<br />
+}<br />
+}<br />
+[Description(&#8220;颜色&#8221;)]<br />
+public Color color<br />
+{<br />
+get;<br />
+set;<br />
+}<br />
+protected override void OnPaint(PaintEventArgs e)<br />
+{<br />
+Color drawColor = Color.FromArgb(0, Color.Purple);<br />
+Brush brush = new SolidBrush(drawColor);</p>
+<p>Pen pen = new Pen(this.color);<br />
+pen.Width = LineHeight;<br />
+AdjustableArrowCap aac = null;<br />
+AdjustableArrowCap aac1 = null;<br />
+if (mIsArrow == 1)<br />
+{<br />
+aac = new AdjustableArrowCap(4, 2);<br />
+pen.CustomStartCap = aac;<br />
+}<br />
+if (mIsArrow == 2)<br />
+{<br />
+aac = new AdjustableArrowCap(4, 2);<br />
+pen.CustomEndCap = aac;<br />
+}<br />
+if (mIsArrow == 3)<br />
+{<br />
+aac = new AdjustableArrowCap(4, 2);<br />
+aac1 = new AdjustableArrowCap(4, 2);<br />
+pen.CustomStartCap = aac;<br />
+pen.CustomEndCap = aac1;<br />
+}</p>
+<p>int lenWidth = mlineHeight;<br />
+int x1 = 0;<br />
+int y1 = 0;<br />
+int x2 = 0;<br />
+int y2 = 0;<br />
+if (Direction == 0)<br />
+{<br />
+// 0:从右至左; 1:从下至上；2：从左至右; 3:从上至下.<br />
+x1 = this.Size.Width;<br />
+y1 = this.Size.Height / 2;<br />
+x2 = 0;<br />
+y2 = y1;<br />
+}<br />
+else if (Direction == 1)<br />
+{<br />
+x1 = this.Size.Width / 2;<br />
+y1 = this.Size.Height;<br />
+x2 = x1;<br />
+y2 = 0;<br />
+}<br />
+else if (Direction == 2)<br />
+{<br />
+//2：从左至右;<br />
+x1 = 0;<br />
+y1 = this.Size.Height / 2;<br />
+x2 = this.Size.Width;<br />
+y2 = y1;<br />
+}<br />
+else if (Direction == 3)<br />
+{<br />
+//3:从上至下.<br />
+x1 = this.Size.Width / 2;<br />
+y1 = 0;<br />
+x2 = x1;<br />
+y2 = this.Size.Height;<br />
+}</p>
+<p>//e.Graphics.FillRectangle(brush, 0, 0, this.Size.Width, this.Size.Height);<br />
+e.Graphics.DrawLine(pen, x1, y1, x2, y2);<br />
+pen.Dispose();<br />
+if (mIsArrow == 1 || mIsArrow == 2)<br />
+{<br />
+aac.Dispose();<br />
+}<br />
+if (mIsArrow == 3)<br />
+{<br />
+aac.Dispose();<br />
+aac1.Dispose();<br />
+}<br />
+brush.Dispose();<br />
+}<br />
+}<br />
+}</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/2019/06/06/c-winform-%e8%87%aa%e5%ae%9a%e4%b9%89%e9%80%8f%e6%98%8e%e6%8e%a7%e4%bb%b6%ef%bc%8c%e5%8f%af%e4%bb%a5%e9%87%8d%e5%8f%a0.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

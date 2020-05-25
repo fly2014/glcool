@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>PHP &#8211; Glcool</title>
+	<atom:link href="https://www.glcool.com/archives/category/php/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Thu, 29 Jun 2017 07:58:30 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>CentOS7安装PHP7与Nginx之PHP-FPM模式</title>
+		<link>https://www.glcool.com/archives/122</link>
+					<comments>https://www.glcool.com/archives/122#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Thu, 29 Jun 2017 07:58:30 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[CentOS7]]></category>
+		<category><![CDATA[Nginx]]></category>
+		<category><![CDATA[PHP-FPM]]></category>
+		<category><![CDATA[PHP7]]></category>
+		<category><![CDATA[yum]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=122</guid>
+
+					<description><![CDATA[采用yum安装PHP7.1.6Released版 1、添加PHP管理软件包的安装源 CentOS/RHEL 7 &#8230; <a href="https://www.glcool.com/archives/122" class="more-link">继续阅读<span class="screen-reader-text">CentOS7安装PHP7与Nginx之PHP-FPM模式</span></a>]]></description>
+										<content:encoded><![CDATA[<p>采用yum安装PHP7.1.6Released版<br />
+1、添加PHP管理软件包的安装源<br />
+CentOS/RHEL 7.x安装源:</p>
+<pre>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+</pre>
+<p>CentOS/RHEL 6.x安装源:</p>
+<pre>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+</pre>
+<p>2、<br />
+[subscribe]mod_php安装模式</p>
+<pre>yum install mod_php71w php71w-opcache php71w-pecl-apcu php71w-common php71w-mysqlnd php71w-pdo php71w-pecl-imagick
+</pre>
+<p>php-fpm安装模式（现在一般选这个）</p>
+<pre>yum install php71w-fpm php71w-opcache php71w-pecl-apcu php71w-common php71w-mysqlnd php71w-pdo php71w-pecl-imagick
+</pre>
+<p>[/subscribe]<br />
+3、安装其他插件包</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Provides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mod_php71w</td>
+<td>php71w, mod_php, php71w-zts</td>
+</tr>
+<tr>
+<td>php71w-bcmath</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-cli</td>
+<td>php-cgi, php-pcntl, php-readline</td>
+</tr>
+<tr>
+<td>php71w-common</td>
+<td>php-api, php-bz2, php-calendar, php-ctype, php-curl, php-date, php-exif, php-fileinfo, php-filter, php-ftp, php-gettext, php-gmp, php-hash, php-iconv, php-json, php-libxml, php-openssl, php-pcre, php-pecl-Fileinfo, php-pecl-phar, php-pecl-zip, php-reflection, php-session, php-shmop, php-simplexml, php-sockets, php-spl, php-tokenizer, php-zend-abi, php-zip, php-zlib</td>
+</tr>
+<tr>
+<td>php71w-dba</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-devel</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-embedded</td>
+<td>php-embedded-devel</td>
+</tr>
+<tr>
+<td>php71w-enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-fpm</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-gd</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-imap</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-interbase</td>
+<td>php_database, php-firebird</td>
+</tr>
+<tr>
+<td>php71w-intl</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-ldap</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-mbstring</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-mcrypt</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-mysql</td>
+<td>php-mysqli, php_database</td>
+</tr>
+<tr>
+<td>php71w-mysqlnd</td>
+<td>php-mysqli, php_database</td>
+</tr>
+<tr>
+<td>php71w-odbc</td>
+<td>php-pdo_odbc, php_database</td>
+</tr>
+<tr>
+<td>php71w-opcache</td>
+<td>php71w-pecl-zendopcache</td>
+</tr>
+<tr>
+<td>php71w-pdo</td>
+<td>php71w-pdo_sqlite, php71w-sqlite3</td>
+</tr>
+<tr>
+<td>php71w-pdo_dblib</td>
+<td>php71w-mssql</td>
+</tr>
+<tr>
+<td>php71w-pear</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-apcu</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-imagick</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-memcached</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-mongodb</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-redis</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pecl-xdebug</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-pgsql</td>
+<td>php-pdo_pgsql, php_database</td>
+</tr>
+<tr>
+<td>php71w-phpdbg</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-process</td>
+<td>php-posix, php-sysvmsg, php-sysvsem, php-sysvshm</td>
+</tr>
+<tr>
+<td>php71w-pspell</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-recode</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-snmp</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-soap</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-tidy</td>
+<td></td>
+</tr>
+<tr>
+<td>php71w-xml</td>
+<td>php-dom, php-domxml, php-wddx, php-xsl</td>
+</tr>
+<tr>
+<td>php71w-xmlrpc</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>4、启动php-fpm（默认端口9000）</p>
+<pre>systemctl start php-fpm
+</pre>
+<p>5、对应配置文件路径如下</p>
+<pre>/etc/php-fpm.conf
+/etc/php.ini
+</pre>
+<hr />
+<p>6、安装nginx源<br />
+CentOS/RHEL 7.x:</p>
+<pre>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+</pre>
+<p>7、安装nginx</p>
+<pre>yum install nginx
+</pre>
+<p>8、启动nginx</p>
+<pre>systemctl start nginx
+</pre>
+<p>9、NGINX配置文件地址如下</p>
+<pre>/etc/nginx/nginx.conf
+</pre>
+<p>10、NGINX整合PHP-FPM,按照如下格式修改nginx server节点。</p>
+<pre>	
+#增加权限 否则报错
+chmod +777 /var/run/php-fpm/php-fpm.sock
+root         /usr/share/nginx/html/;#PHP文件存放目录
+location / {
+         index index.php index.html;
+         try_files $uri $uri/ /index.php?$args;
+        }
+location ~ \.php$ {
+         fastcgi_pass  unix:/var/run/php-fpm/php-fpm.sock;
+         fastcgi_index index.php;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         fastcgi_param QUERY_STRING    $query_string;
+         fastcgi_param REQUEST_METHOD  $request_method;
+         fastcgi_param CONTENT_TYPE    $content_type;
+         fastcgi_param CONTENT_LENGTH  $content_length;
+         include fastcgi_params;
+       }
+</pre>
+<p>11、重新启动nginx</p>
+<pre>systemctl restart nginx
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/122/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

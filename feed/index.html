@@ -8,11 +8,11 @@
 	>
 
 <channel>
-	<title>Glcool</title>
-	<atom:link href="https://www.glcool.com/feed/" rel="self" type="application/rss+xml" />
-	<link>http://www.glcool.com/</link>
+	<title>GlCool</title>
+	<atom:link href="http://192.168.44.15/feed" rel="self" type="application/rss+xml" />
+	<link>http://192.168.44.15/</link>
 	<description>The Global Coolest</description>
-	<lastBuildDate>Tue, 26 May 2020 11:20:31 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 29 Nov 2019 03:11:24 +0000</lastBuildDate>
 	<language>zh-CN</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,22 +20,82 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=5.4.1</generator>
 	<item>
-		<title>Hello world!</title>
-		<link>https://www.glcool.com/2020/05/26/hello-world/</link>
-					<comments>https://www.glcool.com/2020/05/26/hello-world/#comments</comments>
+		<title>windows10-tensorflow2安装</title>
+		<link>http://192.168.44.15/archives/313.html</link>
+					<comments>http://192.168.44.15/archives/313.html#respond</comments>
 		
-		<dc:creator><![CDATA[deng30@gmail.com]]></dc:creator>
-		<pubDate>Tue, 26 May 2020 11:20:31 +0000</pubDate>
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Fri, 29 Nov 2019 03:11:24 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
-		<guid isPermaLink="false">https://www.glcool.com/?p=1</guid>
+		<category><![CDATA[Python]]></category>
+		<category><![CDATA[tensorflow2]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=313</guid>
 
-					<description><![CDATA[Welcome to WordPress. This is your first post. Edit or  [&#8230;]]]></description>
+					<description><![CDATA[0、CMD管理员打开，先安装python3.75 安装virtualenv 1、pip3 install -U &#8230; <a href="http://192.168.44.15/archives/313.html" class="more-link">继续阅读<span class="screen-reader-text">windows10-tensorflow2安装</span></a>]]></description>
 										<content:encoded><![CDATA[
-<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
+<p>0、CMD管理员打开，先安装python3.75</p>
+
+
+
+<p>安装virtualenv</p>
+
+
+
+<p>1、pip3 install -U pip virtualenv -i http://pypi.douban.com/simple &#8211;trusted-host pypi.douban.com</p>
+
+
+
+<p>创建一个虚拟环境</p>
+
+
+
+<p>2、virtualenv &#8211;system-site-packages -p python D:\tf</p>
+
+
+
+<p> 激活虚拟环境/在虚拟环境中安装软件包，而不影响主机系统设置。从升级开始<code>pip</code>/并在以后退出virtualenv</p>
+
+
+
+<p>3、D:\tf\Scripts\activate（注意是执行这个文件）</p>
+
+
+
+<p>pip install &#8211;upgrade pip<br>
+pip list<br>
+deactivate </p>
+
+
+
+<p>4、在python虚拟机环境安装TensorFlow CPU包</p>
+
+
+
+<p> 执行 D:\tf\Scripts\activate </p>
+
+
+
+<p>pip install &#8211;upgrade tensorflow -i http://pypi.douban.com/simple &#8211;trusted-host pypi.douban.com</p>
+
+
+
+<p>验证安装:</p>
+
+
+
+<p>python -c &#8220;import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))&#8221;</p>
+
+
+
+<pre class="wp-block-code"><code> </code></pre>
+
+
+
+<p></p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>https://www.glcool.com/2020/05/26/hello-world/feed/</wfw:commentRss>
-			<slash:comments>1</slash:comments>
+					<wfw:commentRss>http://192.168.44.15/archives/313.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
 		
 		
 			</item>

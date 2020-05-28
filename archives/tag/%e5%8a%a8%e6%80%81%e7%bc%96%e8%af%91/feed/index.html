@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>动态编译 &#8211; GlCool</title>
+	<atom:link href="https://www.glcool.com/archives/tag/%e5%8a%a8%e6%80%81%e7%bc%96%e8%af%91/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Thu, 28 May 2020 05:21:53 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>C#动态编译表达式</title>
+		<link>https://www.glcool.com/archives/308</link>
+					<comments>https://www.glcool.com/archives/308#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Fri, 08 Nov 2019 06:00:27 +0000</pubDate>
+				<category><![CDATA[NET]]></category>
+		<category><![CDATA[动态编译]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=308</guid>
+
+					<description><![CDATA[下面是原始方案 public object ComplierCode(string expression, I &#8230; <a href="https://www.glcool.com/archives/308" class="more-link">继续阅读<span class="screen-reader-text">C#动态编译表达式</span></a>]]></description>
+										<content:encoded><![CDATA[<p>下面是原始方案<br />
+public object ComplierCode(string expression, ILogService logService, out string errorString)<br />
+        {<br />
+            string code = WrapExpression(expression);<br />
+            object retvalue = null;<br />
+            errorString = &#8220;&#8221;;<br />
+            CSharpCodeProvider csharpCodeProvider = new CSharpCodeProvider();<br />
+            try<br />
+            {<br />
+                //编译的参数<br />
+                CompilerParameters compilerParameters = new CompilerParameters<br />
+                {<br />
+                    CompilerOptions = &#8220;/t:library&#8221;,<br />
+                    GenerateInMemory = true<br />
+                };<br />
+                //开始编译<br />
+                CompilerResults compilerResults = csharpCodeProvider.CompileAssemblyFromSource(compilerParameters, code);<br />
+                if (compilerResults.Errors.Count > 0)<br />
+                {<br />
+                    StringBuilder sb = new StringBuilder();<br />
+                    for (int i = 0; i < compilerResults.Errors.Count; i++)
+                    {
+                        sb.Append(sb.Length > 0 ? &#8220;;&#8221; : &#8220;&#8221;);<br />
+                        sb.Append(compilerResults.Errors[i].ErrorText);<br />
+                    }<br />
+                    errorString = sb.ToString();<br />
+                    throw new Exception(&#8220;编译出错！&#8221; + sb.ToString());<br />
+                }</p>
+<p>                Assembly assembly = compilerResults.CompiledAssembly;<br />
+                Type type = assembly.GetType(&#8220;ExpressionCalculate&#8221;);<br />
+                MethodInfo method = type.GetMethod(&#8220;Calculate&#8221;);<br />
+                retvalue = method.Invoke(null, null);<br />
+            }<br />
+            catch (Exception ex)<br />
+            {<br />
+                logService.WriteLog(&#8220;编译出错,code=&#8221; + code, ex);<br />
+            }<br />
+            finally<br />
+            {<br />
+                csharpCodeProvider.Dispose();<br />
+            }<br />
+            return retvalue;<br />
+        }</p>
+<p>        private string WrapExpression(string expression)<br />
+        {<br />
+            string code = @&#8221;<br />
+                using System;</p>
+<p>                class ExpressionCalculate<br />
+                {<br />
+                    public static object Calculate()<br />
+                    {<br />
+                        return {0};<br />
+                    }<br />
+                }<br />
+            &#8220;;<br />
+            return code.Replace(&#8220;{0}&#8221;, expression);<br />
+        }<br />
+其他方案：https://github.com/davideicardi/DynamicExpresso</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/308/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

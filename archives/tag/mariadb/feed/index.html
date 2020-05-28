@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>mariadb &#8211; GlCool</title>
+	<atom:link href="https://www.glcool.com/archives/tag/mariadb/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Thu, 28 May 2020 05:19:29 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>debian9安装mariadb导致密码无效问题</title>
+		<link>https://www.glcool.com/archives/292</link>
+					<comments>https://www.glcool.com/archives/292#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Fri, 02 Aug 2019 09:35:56 +0000</pubDate>
+				<category><![CDATA[数据库]]></category>
+		<category><![CDATA[debian9]]></category>
+		<category><![CDATA[mariadb]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=292</guid>
+
+					<description><![CDATA[debian9默认就是mariadb这个数据库，mysql一样 sudo apt install mariad &#8230; <a href="https://www.glcool.com/archives/292" class="more-link">继续阅读<span class="screen-reader-text">debian9安装mariadb导致密码无效问题</span></a>]]></description>
+										<content:encoded><![CDATA[<p>debian9默认就是mariadb这个数据库，mysql一样<br />
+sudo apt install mariadb-server<br />
+sudo -i<br />
+mysql -u root -p<br />
+1 use mysql;   然后敲回车<br />
+2 update user set authentication_string=password(&#8220;你的密码&#8221;) where user=&#8221;root&#8221;  然后敲回车<br />
+3 flush privileges  然后敲回车上面操作都没有用的<br />
+#select user,plugin from user后看看，错误原因是因为plugin root的字段是auth_socket，那我们改掉它为下面的mysql_native_password<br />
+update user set authentication_string=password(&#8220;123456&#8221;),plugin=&#8217;mysql_native_password&#8217; where user=&#8217;root&#8217;;<br />
+flush privileges;<br />
+到处都是坑<br />
+参考：http://blog.sina.com.cn/s/blog_7c987bee0102yz76.html</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/292/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

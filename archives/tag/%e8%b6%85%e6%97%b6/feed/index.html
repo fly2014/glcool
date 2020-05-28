@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>超时 &#8211; GlCool</title>
+	<atom:link href="https://www.glcool.com/archives/tag/%e8%b6%85%e6%97%b6/feed" rel="self" type="application/rss+xml" />
+	<link>http://www.glcool.com/</link>
+	<description>The Global Coolest</description>
+	<lastBuildDate>Thu, 28 May 2020 05:21:53 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.1</generator>
+	<item>
+		<title>C# Rabbitmq RPC模式服务器超时解决方案</title>
+		<link>https://www.glcool.com/archives/310</link>
+					<comments>https://www.glcool.com/archives/310#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Fri, 08 Nov 2019 06:05:03 +0000</pubDate>
+				<category><![CDATA[消息队列]]></category>
+		<category><![CDATA[rabbitmq]]></category>
+		<category><![CDATA[RPC]]></category>
+		<category><![CDATA[超时]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=310</guid>
+
+					<description><![CDATA[利用2个task实现，看红字，直接看代码 public string Call(string rpc_queu &#8230; <a href="https://www.glcool.com/archives/310" class="more-link">继续阅读<span class="screen-reader-text">C# Rabbitmq RPC模式服务器超时解决方案</span></a>]]></description>
+										<content:encoded><![CDATA[<p>利用2个task实现，看红字，直接看代码<br />
+public string Call(string rpc_queue, byte[] obj)<br />
+{<br />
+string rstr = &#8220;no&#8221;;<br />
+var channel = this.GetModel(RpcChannel); channel.ContinuationTimeout = TimeSpan.FromSeconds(10);<br />
+channel.BasicPublish(exchange: &#8220;&#8221;, routingKey: rpc_queue, basicProperties: props, body: obj);<br />
+channel.BasicConsume(consumer: consumer, queue: replyQueueName, autoAck: true);<br />
+<span style="color: #ff0000;">Task[] tasks = new Task[2];</span><br />
+<span style="color: #ff0000;">tasks[0] = Task.Run(async () =&gt;</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">await Task.Delay(6000);//超时</span><br />
+<span style="color: #ff0000;">respQueue.Add(rstr);</span><br />
+<span style="color: #ff0000;">//respQueue.CompleteAdding();</span><br />
+<span style="color: #ff0000;">});</span><br />
+<span style="color: #ff0000;">tasks[1] = Task.Run(() =&gt;</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">rstr = respQueue.Take();</span><br />
+<span style="color: #ff0000;">});</span><br />
+<span style="color: #ff0000;">try</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">Task.WaitAll(tasks);</span><br />
+<span style="color: #ff0000;">}</span><br />
+<span style="color: #ff0000;">catch (AggregateException ae)</span><br />
+<span style="color: #ff0000;">{</span><br />
+<span style="color: #ff0000;">foreach (var ex in ae.InnerExceptions)</span><br />
+<span style="color: #ff0000;">Console.WriteLine(&#8221; {0}: {1}&#8221;, ex.GetType().Name, ex.Message);</span><br />
+<span style="color: #ff0000;">}</span><br />
+return rstr;<br />
+}</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/310/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

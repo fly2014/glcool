@@ -12,7 +12,7 @@
 	<atom:link href="https://www.glcool.com/feed" rel="self" type="application/rss+xml" />
 	<link>http://www.glcool.com/</link>
 	<description>The Global Coolest</description>
-	<lastBuildDate>Thu, 28 May 2020 05:21:54 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 28 May 2020 07:11:11 +0000</lastBuildDate>
 	<language>zh-CN</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,111 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=5.4.1</generator>
 	<item>
+		<title>LINUX常用命令</title>
+		<link>https://www.glcool.com/archives/346</link>
+					<comments>https://www.glcool.com/archives/346#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Thu, 28 May 2020 07:11:11 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=346</guid>
+
+					<description><![CDATA[复制文件夹文件 \cp -rf /usr/share/nginx/html/glcool/wordpress/ &#8230; <a href="https://www.glcool.com/archives/346" class="more-link">继续阅读<span class="screen-reader-text">LINUX常用命令</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>复制文件夹文件</p>
+
+
+
+<p>\cp -rf /usr/share/nginx/html/glcool/wordpress/mystaticsite/* .</p>
+
+
+
+<p>防火墙</p>
+
+
+
+<pre class="wp-block-code"><code>systemctl stop firewalld 
+firewall-cmd --get-active-zones
+firewall-cmd --get-zone-of-interface=eth0
+firewall-cmd --zone=public --list-ports
+firewall-cmd --zone=public --add-port=5060-5059/tcp --permanent
+firewall-cmd --reload    </code></pre>
+
+
+
+<p>端口</p>
+
+
+<p>lsof -i:8080<br />netstat -tunlp<br />netstat -tunlp | grep 端口号</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>MYSQL</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>mysql -h 127.0.0.1 -p 3306 -u root -p</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>权限</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>chown -R www-data:www-data /root</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>chmod -R +777 /root</p>
+<p><!-- /wp:paragraph --></p>]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/346/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>GIT常用命令</title>
+		<link>https://www.glcool.com/archives/343</link>
+					<comments>https://www.glcool.com/archives/343#respond</comments>
+		
+		<dc:creator><![CDATA[flying]]></dc:creator>
+		<pubDate>Thu, 28 May 2020 06:55:48 +0000</pubDate>
+				<category><![CDATA[未分类]]></category>
+		<guid isPermaLink="false">https://www.glcool.com/?p=343</guid>
+
+					<description><![CDATA[删除手动删除的文件 git add -A . git commit -m &#8220;sc&#8221; g &#8230; <a href="https://www.glcool.com/archives/343" class="more-link">继续阅读<span class="screen-reader-text">GIT常用命令</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>删除手动删除的文件</p>
+
+
+
+<p>git add -A .</p>
+
+
+
+<p>git commit -m &#8220;sc&#8221;</p>
+
+
+
+<p>git push origin master</p>
+
+
+
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+
+
+
+<p>git clone 克隆远程地址</p>
+
+
+
+<p> </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://www.glcool.com/archives/343/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
 		<title>windows10-tensorflow2安装</title>
 		<link>https://www.glcool.com/archives/313</link>
 					<comments>https://www.glcool.com/archives/313#respond</comments>
@@ -379,74 +484,6 @@ Logger.Error("Error" + (e.Source as AccordionStyleControl).Tag.ToString());</cod
 ]]></content:encoded>
 					
 					<wfw:commentRss>https://www.glcool.com/archives/278/feed</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
-		<title>时序数据库InfluxDB在centos7安装使用</title>
-		<link>https://www.glcool.com/archives/276</link>
-					<comments>https://www.glcool.com/archives/276#respond</comments>
-		
-		<dc:creator><![CDATA[flying]]></dc:creator>
-		<pubDate>Thu, 04 Jul 2019 08:35:19 +0000</pubDate>
-				<category><![CDATA[数据库]]></category>
-		<category><![CDATA[CentOS7]]></category>
-		<category><![CDATA[InfluxDB]]></category>
-		<category><![CDATA[时序数据库]]></category>
-		<guid isPermaLink="false">https://www.glcool.com/?p=276</guid>
-
-					<description><![CDATA[安装过程: curl -O https://dl.influxdata.com/influxdb/releas &#8230; <a href="https://www.glcool.com/archives/276" class="more-link">继续阅读<span class="screen-reader-text">时序数据库InfluxDB在centos7安装使用</span></a>]]></description>
-										<content:encoded><![CDATA[<p>安装过程:<br />
-curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7.x86_64.rpm<br />
-yum install influxdb-1.7.7.x86_64.rpm<br />
-systemctl start influxdb<br />
-systemctl status influxdb<br />
-配置安全选项<br />
-vim /etc/influxdb/influxdb.conf<br />
-[http]<br />
-enabled = true<br />
-bind-address = &#8220;:8086&#8221;<br />
-auth-enabled = true<br />
-log-enabled = true<br />
-https暂不开启<br />
-登录<br />
-influx -precision rfc3339<br />
-有密码登录<br />
-influx -precision rfc3339 -username &#8216;admin&#8217; -password &#8216;admin&#8217;<br />
-设置密码（必须登录，先停止安全配置，重启influxdb）<br />
-CREATE USER admin WITH PASSWORD &#8216;<password>&#8216; WITH ALL PRIVILEGES<br />
-数据库连接使用<br />
-NET:https://github.com/influxdata/influxdb-java<br />
-java：https://github.com/AdysTech/InfluxDB.Client.Net</p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://www.glcool.com/archives/276/feed</wfw:commentRss>
-			<slash:comments>0</slash:comments>
-		
-		
-			</item>
-		<item>
-		<title>mosquitto+Apache Apollo搭建MQTT服务器</title>
-		<link>https://www.glcool.com/archives/272</link>
-					<comments>https://www.glcool.com/archives/272#respond</comments>
-		
-		<dc:creator><![CDATA[flying]]></dc:creator>
-		<pubDate>Fri, 28 Jun 2019 03:08:02 +0000</pubDate>
-				<category><![CDATA[IOT]]></category>
-		<category><![CDATA[Apache Apollo]]></category>
-		<category><![CDATA[mosquitto]]></category>
-		<category><![CDATA[MQTT]]></category>
-		<guid isPermaLink="false">https://www.glcool.com/?p=272</guid>
-
-					<description><![CDATA[下载地址： http://activemq.apache.org/apollo/download.html h &#8230; <a href="https://www.glcool.com/archives/272" class="more-link">继续阅读<span class="screen-reader-text">mosquitto+Apache Apollo搭建MQTT服务器</span></a>]]></description>
-										<content:encoded><![CDATA[<p>下载地址：<br />
-http://activemq.apache.org/apollo/download.html<br />
-https://mosquitto.org/download/<br />
-安装</p>
-]]></content:encoded>
-					
-					<wfw:commentRss>https://www.glcool.com/archives/272/feed</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		

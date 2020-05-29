@@ -15,9 +15,6 @@
 		
 					<div id="widget-area" class="widget-area" role="complementary">
 						<aside id="recent-posts-2" class="widget widget_recent_entries"><h2 class="widget-title">近期文章</h2>		<ul><li>
-					<a href="https://www.glcool.com/archives/360">hhhh</a>
-									</li>
-											<li>
 					<a href="https://www.glcool.com/archives/346">LINUX常用命令</a>
 									</li>
 											<li>
@@ -28,6 +25,9 @@
 									</li>
 											<li>
 					<a href="https://www.glcool.com/archives/310">C# Rabbitmq RPC模式服务器超时解决方案</a>
+									</li>
+											<li>
+					<a href="https://www.glcool.com/archives/308">C#动态编译表达式</a>
 									</li>
 					</ul></aside><aside id="pages-2" class="widget widget_pages"><h2 class="widget-title">页面</h2>		<ul><li class="page_item page-item-315"><a href="https://www.glcool.com/about">关于</a></li>
 		</ul></aside><aside id="categories-3" class="widget widget_categories"><h2 class="widget-title">分类目录</h2>		<ul><li class="cat-item cat-item-2"><a href="https://www.glcool.com/archives/category/iot">IOT</a>
@@ -59,12 +59,7 @@
 	<div id="content" class="site-content">
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main"><article id="post-360" class="post-360 post type-post status-publish format-standard hentry category-uncategorized"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/360" rel="bookmark">hhhh</a></h2>	</header><div class="entry-content">
-		<p>hhhh</p>
-	</div>
-
-	
-	<footer class="entry-footer"><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="https://www.glcool.com/archives/360" rel="bookmark"><time class="entry-date published updated" datetime="2020-05-29T16:19:20+08:00">2020年5月29日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="https://www.glcool.com/archives/category/uncategorized" rel="category tag">未分类</a></span><span class="comments-link"><a href="https://www.glcool.com/archives/360#respond"><span class="screen-reader-text">于hhhh</span>留下评论</a></span>			</footer></article><article id="post-346" class="post-346 post type-post status-publish format-standard hentry category-linux"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/346" rel="bookmark">LINUX常用命令</a></h2>	</header><div class="entry-content">
+		<main id="main" class="site-main" role="main"><article id="post-346" class="post-346 post type-post status-publish format-standard hentry category-linux"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/346" rel="bookmark">LINUX常用命令</a></h2>	</header><div class="entry-content">
 		
 <p>复制文件夹文件</p>
 
@@ -356,10 +351,35 @@ Logger.Error("Error" + (e.Source as AccordionStyleControl).Tag.ToString());</cod
 	</div>
 
 	
-	<footer class="entry-footer"><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="https://www.glcool.com/archives/278" rel="bookmark"><time class="entry-date published" datetime="2019-07-09T11:19:47+08:00">2019年7月9日</time><time class="updated" datetime="2020-05-28T13:21:54+08:00">2020年5月28日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="https://www.glcool.com/archives/category/net" rel="category tag">NET</a></span><span class="tags-links"><span class="screen-reader-text">标签 </span><a href="https://www.glcool.com/archives/tag/nlog" rel="tag">NLOG</a></span><span class="comments-link"><a href="https://www.glcool.com/archives/278#respond"><span class="screen-reader-text">于NET之NLOG使用</span>留下评论</a></span>			</footer></article><nav class="navigation pagination" role="navigation" aria-label="文章"><h2 class="screen-reader-text">文章导航</h2>
+	<footer class="entry-footer"><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="https://www.glcool.com/archives/278" rel="bookmark"><time class="entry-date published" datetime="2019-07-09T11:19:47+08:00">2019年7月9日</time><time class="updated" datetime="2020-05-28T13:21:54+08:00">2020年5月28日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="https://www.glcool.com/archives/category/net" rel="category tag">NET</a></span><span class="tags-links"><span class="screen-reader-text">标签 </span><a href="https://www.glcool.com/archives/tag/nlog" rel="tag">NLOG</a></span><span class="comments-link"><a href="https://www.glcool.com/archives/278#respond"><span class="screen-reader-text">于NET之NLOG使用</span>留下评论</a></span>			</footer></article><article id="post-276" class="post-276 post type-post status-publish format-standard hentry category-8 tag-centos7 tag-influxdb tag-45"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/276" rel="bookmark">时序数据库InfluxDB在centos7安装使用</a></h2>	</header><div class="entry-content">
+		<p>安装过程:<br>
+curl -O https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7.x86_64.rpm<br>
+yum install influxdb-1.7.7.x86_64.rpm<br>
+systemctl start influxdb<br>
+systemctl status influxdb<br>
+配置安全选项<br>
+vim /etc/influxdb/influxdb.conf<br>
+[http]<br>
+enabled = true<br>
+bind-address = “:8086”<br>
+auth-enabled = true<br>
+log-enabled = true<br>
+https暂不开启<br>
+登录<br>
+influx -precision rfc3339<br>
+有密码登录<br>
+influx -precision rfc3339 -username ‘admin’ -password ‘admin’<br>
+设置密码（必须登录，先停止安全配置，重启influxdb）<br>
+CREATE USER admin WITH PASSWORD ‘<password>‘ WITH ALL PRIVILEGES<br>
+数据库连接使用<br>
+NET:https://github.com/influxdata/influxdb-java<br>
+java：https://github.com/AdysTech/InfluxDB.Client.Net</password></p>
+	</div>
+
+	
+	<footer class="entry-footer"><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="https://www.glcool.com/archives/276" rel="bookmark"><time class="entry-date published" datetime="2019-07-04T16:35:19+08:00">2019年7月4日</time><time class="updated" datetime="2020-05-28T13:21:54+08:00">2020年5月28日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="https://www.glcool.com/archives/category/%e6%95%b0%e6%8d%ae%e5%ba%93" rel="category tag">数据库</a></span><span class="tags-links"><span class="screen-reader-text">标签 </span><a href="https://www.glcool.com/archives/tag/centos7" rel="tag">CentOS7</a>、<a href="https://www.glcool.com/archives/tag/influxdb" rel="tag">InfluxDB</a>、<a href="https://www.glcool.com/archives/tag/%e6%97%b6%e5%ba%8f%e6%95%b0%e6%8d%ae%e5%ba%93" rel="tag">时序数据库</a></span><span class="comments-link"><a href="https://www.glcool.com/archives/276#respond"><span class="screen-reader-text">于时序数据库InfluxDB在centos7安装使用</span>留下评论</a></span>			</footer></article><nav class="navigation pagination" role="navigation" aria-label="文章"><h2 class="screen-reader-text">文章导航</h2>
 		<div class="nav-links"><span aria-current="page" class="page-numbers current"><span class="meta-nav screen-reader-text">页 </span>1</span>
 <a class="page-numbers" href="https://www.glcool.com/page/2"><span class="meta-nav screen-reader-text">页 </span>2</a>
-<a class="page-numbers" href="https://www.glcool.com/page/3"><span class="meta-nav screen-reader-text">页 </span>3</a>
 <a class="next page-numbers" href="https://www.glcool.com/page/2">下一页</a></div>
 	</nav></main></div>
 

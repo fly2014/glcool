@@ -15,6 +15,12 @@
 		
 					<div id="widget-area" class="widget-area" role="complementary">
 						<aside id="recent-posts-2" class="widget widget_recent_entries"><h2 class="widget-title">近期文章</h2>		<ul><li>
+					<a href="https://www.glcool.com/archives/362">DbContext与IOC与多线程</a>
+									</li>
+											<li>
+					<a href="https://www.glcool.com/archives/360">WPF 与 IOC与Nlog</a>
+									</li>
+											<li>
 					<a href="https://www.glcool.com/archives/346">LINUX常用命令</a>
 									</li>
 											<li>
@@ -22,12 +28,6 @@
 									</li>
 											<li>
 					<a href="https://www.glcool.com/archives/313">windows10-tensorflow2安装</a>
-									</li>
-											<li>
-					<a href="https://www.glcool.com/archives/310">C# Rabbitmq RPC模式服务器超时解决方案</a>
-									</li>
-											<li>
-					<a href="https://www.glcool.com/archives/308">C#动态编译表达式</a>
 									</li>
 					</ul></aside><aside id="pages-2" class="widget widget_pages"><h2 class="widget-title">页面</h2>		<ul><li class="page_item page-item-315"><a href="https://www.glcool.com/about">关于</a></li>
 		</ul></aside><aside id="categories-3" class="widget widget_categories"><h2 class="widget-title">分类目录</h2>		<ul><li class="cat-item cat-item-2"><a href="https://www.glcool.com/archives/category/iot">IOT</a>
@@ -58,7 +58,64 @@
 
 	<div id="content" class="site-content">
 
-	<section id="primary" class="content-area"><main id="main" class="site-main" role="main"><header class="page-header"><h1 class="page-title">标签：NLOG</h1>			</header><article id="post-278" class="post-278 post type-post status-publish format-standard hentry category-net tag-nlog"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/278" rel="bookmark">NET之NLOG使用</a></h2>	</header><div class="entry-content">
+	<section id="primary" class="content-area"><main id="main" class="site-main" role="main"><header class="page-header"><h1 class="page-title">标签：NLOG</h1>			</header><article id="post-360" class="post-360 post type-post status-publish format-standard hentry category-net category-windows tag-ioc tag-nlog tag-wpf"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/360" rel="bookmark">WPF 与 IOC与Nlog</a></h2>	</header><div class="entry-content">
+		<p>1、新建一个WPF core项目</p>
+<p>2、删除App.xaml之中StartupUri=”MainWindow.xaml”代码</p>
+<p>3、修改app代码</p>
+<pre>public partial class App : Application
+{
+public IConfiguration Configuration;
+private IServiceProvider _serviceProvider;
+
+protected override void OnStartup(StartupEventArgs e)
+{
+var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+Configuration = builder.Build();
+
+var serviceCollection = new ServiceCollection();
+ConfigureServices(serviceCollection);
+
+_serviceProvider = serviceCollection.BuildServiceProvider();
+
+var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+mainWindow.Show();
+}
+private void ConfigureServices(IServiceCollection services)
+{
+services.AddLogging(logging =>
+{
+logging.ClearProviders();
+logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+logging.AddNLog(Configuration.GetSection("Logging"));
+});
+services.AddSingleton(typeof(MainWindow));
+services.AddSingleton<IOpcService, OpcService>();
+}
+}
+</pre>
+<p>4、修改windows代码</p>
+<pre>public partial class MainWindow : Window
+{
+private readonly ILogger<MainWindow> _logger;
+private readonly IOpcService _opcService;
+public MainWindow(ILogger<MainWindow> logger, IOpcService opcService )
+{
+_logger = logger;
+_opcService = opcService;
+_logger.LogDebug("开始");
+InitializeComponent();
+}
+}
+</pre>
+<p>5、执行F5</p>
+<p>appsettings.json参考微软教程</p>
+<p>nlog.config参考<a href="https://github.com/NLog/NLog/wiki/Getting-started-with-.NET-Core-2---Console-application">https://github.com/NLog/NLog/wiki/Getting-started-with-.NET-Core-2—Console-application</a></p>
+	</div>
+
+	
+	<footer class="entry-footer"><span class="posted-on"><span class="screen-reader-text">发布于 </span><a href="https://www.glcool.com/archives/360" rel="bookmark"><time class="entry-date published updated" datetime="2020-08-31T11:29:01+08:00">2020年8月31日</time></a></span><span class="cat-links"><span class="screen-reader-text">分类 </span><a href="https://www.glcool.com/archives/category/net" rel="category tag">NET</a>、<a href="https://www.glcool.com/archives/category/windows" rel="category tag">Windows</a></span><span class="tags-links"><span class="screen-reader-text">标签 </span><a href="https://www.glcool.com/archives/tag/ioc" rel="tag">IOC</a>、<a href="https://www.glcool.com/archives/tag/nlog" rel="tag">NLOG</a>、<a href="https://www.glcool.com/archives/tag/wpf" rel="tag">WPF</a></span><span class="comments-link"><a href="https://www.glcool.com/archives/360#respond"><span class="screen-reader-text">于WPF 与 IOC与Nlog</span>留下评论</a></span>			</footer></article><article id="post-278" class="post-278 post type-post status-publish format-standard hentry category-net tag-nlog"><header class="entry-header"><h2 class="entry-title"><a href="https://www.glcool.com/archives/278" rel="bookmark">NET之NLOG使用</a></h2>	</header><div class="entry-content">
 		<p>安装<br><code>Install-Package NLog.Config</code><br>
 配置文件</p>
 <pre>  <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
